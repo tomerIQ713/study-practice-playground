@@ -1,0 +1,242 @@
+.student-join {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.student-join__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: auto;
+}
+
+.student-join__back {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  font: 13px/1.4 var(--sans);
+  color: var(--text);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.student-join__back:hover {
+  color: var(--accent);
+}
+
+.student-join__user {
+  font-size: 13px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.student-join__top-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.student-join__logout {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font: 13px/1.4 var(--sans);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.student-join__logout:hover {
+  border-color: #e53e3e;
+  color: #e53e3e;
+}
+
+.student-join__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+  padding-bottom: 80px;
+  max-width: 360px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.student-join__title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.student-join__desc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.student-join__input {
+  width: 100%;
+  padding: 10px 14px;
+  font: 16px/1.5 var(--mono);
+  color: var(--text-h);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+}
+
+.student-join__input:focus {
+  border-color: var(--accent);
+}
+
+.student-join__input::placeholder {
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text);
+  opacity: 0.5;
+}
+
+.student-join__submit {
+  width: 100%;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font: 600 15px/1.4 var(--sans);
+  cursor: pointer;
+}
+
+.student-join__submit:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.student-join__submit:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.student-join__error {
+  margin: 0;
+  font-size: 13px;
+  color: #e53e3e;
+  text-align: left;
+  width: 100%;
+}
+
+.student-join__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.student-join__link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.student-join__link:hover {
+  text-decoration: underline;
+}
+
+.student-join__hint {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.student-join__link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.student-join__link-btn:hover {
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+.student-join__section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.student-join__section + .student-join__section {
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.student-join__section-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.student-join__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.student-join__list-item {
+  list-style: none;
+}
+
+.student-join__list-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s;
+}
+
+.student-join__list-link:hover {
+  border-color: var(--accent);
+}
+
+.student-join__list-name {
+  color: var(--text-h);
+  font-weight: 500;
+}
+
+.student-join__list-code {
+  color: var(--text);
+  font-family: var(--mono);
+  letter-spacing: 1px;
+}

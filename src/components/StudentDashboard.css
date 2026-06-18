@@ -1,0 +1,166 @@
+.student-dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.student-dashboard__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.student-dashboard__top-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.student-dashboard__user {
+  font-size: 13px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.student-dashboard__back {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  font: 13px/1.4 var(--sans);
+  color: var(--text);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.student-dashboard__back:hover {
+  color: var(--accent);
+}
+
+.student-dashboard__logout {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font: 13px/1.4 var(--sans);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.student-dashboard__logout:hover {
+  border-color: #e53e3e;
+  color: #e53e3e;
+}
+
+.student-dashboard__body {
+  flex: 1;
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.student-dashboard__title {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.student-dashboard__desc {
+  margin: 0 0 24px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.student-dashboard__links {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.student-dashboard__action {
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font: 600 14px/1.4 var(--sans);
+  cursor: pointer;
+}
+
+.student-dashboard__action:hover {
+  opacity: 0.9;
+}
+
+.student-dashboard__section-title {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.student-dashboard__classrooms {
+  margin-top: 8px;
+}
+
+.student-dashboard__status {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.student-dashboard__error {
+  margin: 0;
+  font-size: 13px;
+  color: #e53e3e;
+}
+
+.student-dashboard__link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.student-dashboard__link:hover {
+  text-decoration: underline;
+}
+
+.student-dashboard__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.student-dashboard__classroom-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.student-dashboard__classroom-name {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-h);
+  flex: 1;
+}
+
+.student-dashboard__classroom-code {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--accent);
+}

@@ -1,0 +1,132 @@
+.register {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.register__back {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  font: 13px/1.4 var(--sans);
+  color: var(--text);
+  cursor: pointer;
+  text-decoration: none;
+  margin-bottom: auto;
+}
+
+.register__back:hover {
+  color: var(--accent);
+}
+
+.register__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+  padding-bottom: 80px;
+  max-width: 360px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.register__title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.register__desc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.register__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.register__input,
+.register__select {
+  width: 100%;
+  padding: 10px 14px;
+  font: 15px/1.5 var(--sans);
+  color: var(--text-h);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.register__select {
+  cursor: pointer;
+  appearance: auto;
+}
+
+.register__input:focus,
+.register__select:focus {
+  border-color: var(--accent);
+}
+
+.register__input::placeholder {
+  color: var(--text);
+  opacity: 0.5;
+}
+
+.register__error {
+  margin: 0;
+  font-size: 13px;
+  color: #e53e3e;
+  text-align: left;
+}
+
+.register__submit {
+  width: 100%;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font: 600 15px/1.4 var(--sans);
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.register__submit:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.register__submit:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.register__footer {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.register__link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register__link:hover {
+  text-decoration: underline;
+}

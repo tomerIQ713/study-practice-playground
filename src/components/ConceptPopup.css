@@ -1,0 +1,70 @@
+.concept-popup__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.concept-popup__card {
+  background: #1e1e2e;
+  border: 1px solid #45475a;
+  border-radius: 12px;
+  max-width: 520px;
+  width: 90vw;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.concept-popup__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.concept-popup__title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #cdd6f4;
+}
+
+.concept-popup__close {
+  background: none;
+  border: none;
+  color: #a6adc8;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.concept-popup__close:hover {
+  background: #313244;
+  color: #cdd6f4;
+}
+
+.concept-popup__body {
+  color: #bac2de;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.concept-popup__body strong {
+  color: #f5c2e7;
+}
+
+.concept-popup__body code {
+  background: #181825;
+  color: #a6e3a1;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}

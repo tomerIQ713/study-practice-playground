@@ -1,0 +1,353 @@
+.assignment-form {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.assignment-form__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.assignment-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.assignment-form__label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text);
+}
+
+.assignment-form__input {
+  padding: 8px 12px;
+  font: 14px/1.5 var(--sans);
+  color: var(--text-h);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.assignment-form__input:focus {
+  border-color: var(--accent);
+}
+
+.assignment-form__textarea {
+  padding: 8px 12px;
+  font: 14px/1.5 var(--sans);
+  color: var(--text-h);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  outline: none;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.assignment-form__textarea:focus {
+  border-color: var(--accent);
+}
+
+.assignment-form__row {
+  display: flex;
+  gap: 12px;
+}
+
+.assignment-form__file-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font: 600 13px/1.4 var(--sans);
+  cursor: pointer;
+}
+
+.assignment-form__file-btn:hover {
+  opacity: 0.9;
+}
+
+.assignment-form__file-input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  font-size: 0;
+}
+
+.assignment-form__file-name {
+  margin: 0;
+  font-size: 12px;
+  color: var(--accent);
+}
+
+.assignment-form__file-list {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+}
+
+.assignment-form__toggle-row {
+  display: flex;
+}
+
+.assignment-form__toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.assignment-form__toggle input {
+  display: none;
+}
+
+.assignment-form__toggle-track {
+  width: 36px;
+  height: 20px;
+  background: var(--border);
+  border-radius: 10px;
+  position: relative;
+  transition: background 0.2s;
+}
+
+.assignment-form__toggle input:checked + .assignment-form__toggle-track {
+  background: var(--accent);
+}
+
+.assignment-form__toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.assignment-form__toggle input:checked + .assignment-form__toggle-track .assignment-form__toggle-knob {
+  transform: translateX(16px);
+}
+
+.assignment-form__toggle-label {
+  font-size: 13px;
+  color: var(--text-h);
+  font-weight: 500;
+}
+
+.assignment-form__divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 4px 0;
+}
+
+.assignment-form__textarea--code {
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.assignment-form__mc-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.assignment-form__mc-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.assignment-form__mc-row .assignment-form__input {
+  flex: 1;
+}
+
+.assignment-form__mc-radio {
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.assignment-form__mc-hint {
+  margin: 0;
+  font-size: 11px;
+  color: var(--text);
+  font-style: italic;
+}
+
+.assignment-form__error {
+  margin: 0;
+  font-size: 13px;
+  color: #e53e3e;
+}
+
+.assignment-form__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.assignment-form__submit {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font: 600 14px/1.4 var(--sans);
+  cursor: pointer;
+}
+
+.assignment-form__submit:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.assignment-form__submit:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.assignment-form__cancel {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 16px;
+  font: 14px/1.4 var(--sans);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.assignment-form__cancel:hover {
+  border-color: var(--text);
+}
+
+.assignment-form__section-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.assignment-form__question-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.assignment-form__question-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.assignment-form__question-num {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.assignment-form__question-remove {
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: #e53e3e;
+  cursor: pointer;
+  padding: 0;
+}
+
+.assignment-form__question-remove:hover {
+  text-decoration: underline;
+}
+
+.assignment-form__add-btn {
+  background: none;
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  padding: 8px 14px;
+  font: 13px/1.4 var(--sans);
+  color: var(--accent);
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.assignment-form__add-btn:hover {
+  border-color: var(--accent);
+}
+
+.assignment-form__empty-files {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.assignment-form__empty-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.assignment-form__empty-row .assignment-form__input {
+  flex: 1;
+}
+
+.assignment-form__empty-remove {
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #e53e3e;
+  cursor: pointer;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.assignment-form__question-image-section {
+  margin-top: 12px;
+}
+
+.assignment-form__question-image-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.assignment-form__question-image-img {
+  max-width: 300px;
+  max-height: 200px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  object-fit: contain;
+}
+
+.assignment-form__question-image-remove {
+  background: none;
+  border: 1px solid #e53e3e;
+  color: #e53e3e;
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  align-self: flex-start;
+}

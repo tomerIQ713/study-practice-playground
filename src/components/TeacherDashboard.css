@@ -1,0 +1,226 @@
+.teacher-dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.teacher-dashboard__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.teacher-dashboard__back {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  font: 13px/1.4 var(--sans);
+  color: var(--text);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.teacher-dashboard__back:hover {
+  color: var(--accent);
+}
+
+.teacher-dashboard__top-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.teacher-dashboard__user {
+  font-size: 13px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.teacher-dashboard__logout {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font: 13px/1.4 var(--sans);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.teacher-dashboard__logout:hover {
+  border-color: #e53e3e;
+  color: #e53e3e;
+}
+
+.teacher-dashboard__body {
+  flex: 1;
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.teacher-dashboard__title {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.teacher-dashboard__desc {
+  margin: 0 0 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.teacher-dashboard__create {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font: 600 14px/1.4 var(--sans);
+  cursor: pointer;
+  margin-bottom: 24px;
+}
+
+.teacher-dashboard__create:hover {
+  opacity: 0.9;
+}
+
+.teacher-dashboard__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+  max-width: 360px;
+}
+
+.teacher-dashboard__input {
+  width: 100%;
+  padding: 10px 14px;
+  font: 15px/1.5 var(--sans);
+  color: var(--text-h);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.teacher-dashboard__input:focus {
+  border-color: var(--accent);
+}
+
+.teacher-dashboard__form-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.teacher-dashboard__submit {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font: 600 14px/1.4 var(--sans);
+  cursor: pointer;
+}
+
+.teacher-dashboard__submit:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.teacher-dashboard__cancel {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 16px;
+  font: 14px/1.4 var(--sans);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.teacher-dashboard__cancel:hover {
+  border-color: var(--text);
+}
+
+.teacher-dashboard__error {
+  margin: 0;
+  font-size: 13px;
+  color: #e53e3e;
+}
+
+.teacher-dashboard__link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.teacher-dashboard__link:hover {
+  text-decoration: underline;
+}
+
+.teacher-dashboard__classrooms {
+  margin-top: 24px;
+}
+
+.teacher-dashboard__status {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.teacher-dashboard__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.teacher-dashboard__classroom-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s;
+}
+
+.teacher-dashboard__classroom-card:hover {
+  border-color: var(--accent);
+}
+
+.teacher-dashboard__classroom-name {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-h);
+  flex: 1;
+}
+
+.teacher-dashboard__classroom-code {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--accent);
+}
+
+.teacher-dashboard__classroom-students {
+  font-size: 13px;
+  color: var(--text);
+}
+
+.teacher-dashboard__classroom-arrow {
+  font-size: 14px;
+  color: var(--text);
+}

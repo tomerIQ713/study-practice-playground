@@ -1,0 +1,126 @@
+.teacher-login {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.teacher-login__back {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  font: 13px/1.4 var(--sans);
+  color: var(--text);
+  cursor: pointer;
+  text-decoration: none;
+  margin-bottom: auto;
+}
+
+.teacher-login__back:hover {
+  color: var(--accent);
+}
+
+.teacher-login__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+  padding-bottom: 80px;
+  max-width: 360px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.teacher-login__title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.teacher-login__desc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.teacher-login__input {
+  width: 100%;
+  padding: 10px 14px;
+  font: 15px/1.5 var(--sans);
+  color: var(--text-h);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.teacher-login__input:focus {
+  border-color: var(--accent);
+}
+
+.teacher-login__input::placeholder {
+  color: var(--text);
+  opacity: 0.5;
+}
+
+.teacher-login__submit {
+  width: 100%;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font: 600 15px/1.4 var(--sans);
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.teacher-login__submit:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.teacher-login__submit:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.teacher-login__error {
+  margin: 0;
+  font-size: 13px;
+  color: #e53e3e;
+  text-align: left;
+  width: 100%;
+}
+
+.teacher-login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.teacher-login__footer {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.teacher-login__link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.teacher-login__link:hover {
+  text-decoration: underline;
+}

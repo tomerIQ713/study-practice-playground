@@ -1,0 +1,296 @@
+.classroom-chat--collapsed {
+  position: fixed;
+  right: 24px;
+  top: 80px;
+  z-index: 100;
+}
+
+.classroom-chat__toggle {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.classroom-chat__toggle:hover {
+  opacity: 0.9;
+}
+
+.classroom-chat__toggle-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #e53e3e;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  box-sizing: border-box;
+}
+
+.classroom-chat--expanded {
+  position: fixed;
+  right: 24px;
+  top: 80px;
+  z-index: 100;
+  width: 360px;
+  max-height: calc(100vh - 120px);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.classroom-chat__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: var(--text);
+  opacity: 0.5;
+  cursor: pointer;
+  z-index: 2;
+  padding: 4px;
+}
+
+.classroom-chat__close:hover {
+  opacity: 1;
+}
+
+.classroom-chat__contacts {
+  width: 180px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border);
+  background: var(--code-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.classroom-chat__contacts-title {
+  margin: 0;
+  padding: 14px 16px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text);
+}
+
+.classroom-chat__contact-list {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.classroom-chat__contact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font: 14px/1.4 var(--sans);
+  color: var(--text-h);
+  width: 100%;
+}
+
+.classroom-chat__contact:hover {
+  background: var(--accent-bg);
+}
+
+.classroom-chat__contact--active {
+  background: var(--accent-bg);
+  font-weight: 600;
+}
+
+.classroom-chat__contact-name {
+  flex: 1;
+}
+
+.classroom-chat__contact-badge {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.classroom-chat__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.classroom-chat__placeholder {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.classroom-chat__placeholder p {
+  font-size: 14px;
+  color: var(--text);
+  opacity: 0.6;
+}
+
+.classroom-chat__messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 360px;
+}
+
+.classroom-chat__empty-msg {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.5;
+  margin: auto;
+}
+
+.classroom-chat__bubble {
+  max-width: 75%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  align-self: flex-start;
+}
+
+.classroom-chat__bubble--self {
+  background: var(--accent-bg);
+  border-color: var(--accent);
+  align-self: flex-end;
+}
+
+.classroom-chat__bubble-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.classroom-chat__bubble-sender {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.classroom-chat__bubble-time {
+  font-size: 11px;
+  color: var(--text);
+  opacity: 0.6;
+}
+
+.classroom-chat__bubble-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-h);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.classroom-chat__bubble-assignment {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--bg);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.classroom-chat__input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--code-bg);
+}
+
+.classroom-chat__input-wrap {
+  flex: 1;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.classroom-chat__input {
+  flex: 1;
+  padding: 8px 12px;
+  font: 14px/1.5 var(--sans);
+  color: var(--text-h);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  outline: none;
+}
+
+.classroom-chat__input:focus {
+  border-color: var(--accent);
+}
+
+.classroom-chat__assignment-select {
+  padding: 8px 10px;
+  font: 13px/1.4 var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  outline: none;
+  max-width: 180px;
+}
+
+.classroom-chat__send {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font: 600 13px/1.4 var(--sans);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.classroom-chat__send:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.classroom-chat__send:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.classroom-chat__empty {
+  font-size: 13px;
+  color: var(--text);
+  padding: 14px 16px;
+  margin: 0;
+}

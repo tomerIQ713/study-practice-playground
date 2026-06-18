@@ -1,0 +1,308 @@
+.teacher-submissions {
+  display: flex;
+  min-height: 400px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.teacher-submissions__sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background: var(--code-bg);
+  border-right: 1px solid var(--border);
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.teacher-submissions__sidebar-title {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-h);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.teacher-submissions__status {
+  font-size: 13px;
+  color: var(--text);
+  margin: 0;
+}
+
+.teacher-submissions__error {
+  font-size: 13px;
+  color: #e53e3e;
+  margin: 0 0 12px;
+}
+
+.teacher-submissions__assignment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.teacher-submissions__assignment-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 10px;
+  cursor: pointer;
+  text-align: left;
+  font: 13px/1.4 var(--sans);
+  color: var(--text);
+  transition: background 0.15s;
+}
+
+.teacher-submissions__assignment-item:hover {
+  background: var(--bg);
+}
+
+.teacher-submissions__assignment-item--active {
+  background: var(--bg);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.teacher-submissions__assignment-title {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.teacher-submissions__assignment-lang {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  padding: 1px 6px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.teacher-submissions__main {
+  flex: 1;
+  padding: 20px 24px;
+  overflow-y: auto;
+  background: var(--bg);
+}
+
+.teacher-submissions__placeholder {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text);
+  opacity: 0.6;
+}
+
+.teacher-submissions__main-title {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.teacher-submissions__student-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.teacher-submissions__student-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  cursor: pointer;
+  text-align: left;
+  font: 13px/1.4 var(--sans);
+  color: var(--text-h);
+  transition: border-color 0.15s;
+}
+
+.teacher-submissions__student-card:hover {
+  border-color: var(--accent);
+}
+
+.teacher-submissions__student-name {
+  font-weight: 600;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.teacher-submissions__student-email {
+  color: var(--text);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.teacher-submissions__student-date {
+  font-size: 12px;
+  color: var(--text);
+  flex-shrink: 0;
+}
+
+.teacher-submissions__answer-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.teacher-submissions__back-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font: 13px/1.4 var(--sans);
+  color: var(--text);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.teacher-submissions__back-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.teacher-submissions__answer-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-h);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.teacher-submissions__answer {
+  margin: 0;
+  padding: 16px;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: 13px/1.6 var(--mono);
+  color: var(--text-h);
+  white-space: pre-wrap;
+  overflow-x: auto;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.teacher-submissions__student-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.teacher-submissions__student-card--selected {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+}
+
+.teacher-submissions__detail {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  padding: 16px;
+  margin-top: -1px;
+}
+
+.teacher-submissions__score-badge {
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-bg);
+  padding: 1px 8px;
+  border-radius: 3px;
+}
+
+.teacher-submissions__grade-form {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.teacher-submissions__grade-title {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.teacher-submissions__grade-row {
+  margin-bottom: 12px;
+}
+
+.teacher-submissions__grade-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.teacher-submissions__grade-input {
+  width: 120px;
+  padding: 6px 10px;
+  font: 13px/1.4 var(--sans);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--code-bg);
+  color: var(--text-h);
+  outline: none;
+}
+
+.teacher-submissions__grade-input:focus {
+  border-color: var(--accent);
+}
+
+.teacher-submissions__grade-textarea {
+  width: 100%;
+  padding: 8px 10px;
+  font: 13px/1.4 var(--sans);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--code-bg);
+  color: var(--text-h);
+  resize: vertical;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.teacher-submissions__grade-textarea:focus {
+  border-color: var(--accent);
+}
+
+.teacher-submissions__grade-btn {
+  padding: 8px 20px;
+  font: 13px/1.4 var(--sans);
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.teacher-submissions__grade-btn:hover {
+  opacity: 0.9;
+}
+
+.teacher-submissions__grade-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

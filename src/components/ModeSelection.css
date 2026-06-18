@@ -1,0 +1,133 @@
+.mode-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 40px 24px;
+  gap: 32px;
+  box-sizing: border-box;
+}
+
+.mode-selection__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.mode-selection__title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.mode-selection__subtitle {
+  margin: 0;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.mode-selection__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 480px;
+}
+
+.mode-selection__card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  text-align: left;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  text-decoration: none;
+  color: inherit;
+  box-sizing: border-box;
+}
+
+.mode-selection__card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-bg);
+}
+
+.mode-selection__card-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-bg);
+  border-radius: 10px;
+}
+
+.mode-selection__card-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mode-selection__card-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.mode-selection__card-desc {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.mode-selection__card-action {
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.mode-selection__teacher-link {
+  font-size: 14px;
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.mode-selection__teacher-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.mode-selection__footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mode-selection__register-link {
+  font-size: 13px;
+  color: var(--text);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.mode-selection__register-link:hover {
+  color: var(--accent);
+}
