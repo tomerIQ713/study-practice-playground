@@ -164,3 +164,16 @@
   color: var(--accent);
   border-bottom-color: var(--accent);
 }
+
+@media (max-width: 768px) {
+  .teacher-classroom {
+    padding: 16px;
+  }
+  .teacher-classroom__top {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .teacher-classroom__body {
+    overflow-x: auto;
+  }
+}

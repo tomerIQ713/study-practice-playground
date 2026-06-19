@@ -149,3 +149,10 @@
   white-space: pre-wrap;
   word-break: break-word;
 }
+
+@media (max-width: 768px) {
+  .result-table__cell {
+    white-space: normal;
+    word-break: break-word;
+  }
+}

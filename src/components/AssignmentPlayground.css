@@ -570,3 +570,48 @@
   font-family: var(--mono);
   color: var(--accent);
 }
+
+@media (max-width: 768px) {
+  .assignment-pg__body {
+    flex-direction: column;
+  }
+  .assignment-pg__sidebar {
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 8px 12px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .assignment-pg__sidebar-section {
+    display: flex;
+    gap: 4px;
+    padding: 0;
+  }
+  .assignment-pg__sidebar-heading {
+    display: none;
+  }
+  .assignment-pg__file {
+    white-space: nowrap;
+    width: auto;
+  }
+  .assignment-pg__file-link {
+    white-space: nowrap;
+  }
+  .assignment-pg__questions {
+    padding: 16px;
+  }
+  .assignment-pg__bottom {
+    padding: 10px 16px;
+    flex-direction: column;
+  }
+  .assignment-pg__grade-form {
+    flex-direction: column;
+  }
+  .assignment-pg__grade-textarea {
+    width: 100%;
+  }
+}

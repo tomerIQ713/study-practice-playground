@@ -306,3 +306,20 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+@media (max-width: 768px) {
+  .teacher-submissions {
+    flex-direction: column;
+  }
+  .teacher-submissions__sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .teacher-submissions__main {
+    padding: 16px;
+  }
+  .teacher-submissions__student-card {
+    flex-wrap: wrap;
+  }
+}

@@ -14,22 +14,22 @@ export default function TeacherLogin() {
   }, [user, navigate])
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
+  const [errors, setErrors] = useState({})
   const [busy, setBusy] = useState(false)
 
   async function handleSubmit(e) {
     e.preventDefault()
-    setError('')
-    if (!email.trim() || !password) {
-      setError('Please enter email and password')
-      return
-    }
+    const next = {}
+    if (!email.trim()) next.email = 'Email is required'
+    if (!password) next.password = 'Password is required'
+    setErrors(next)
+    if (Object.keys(next).length > 0) return
     setBusy(true)
     try {
       const user = await login(email.trim(), password)
       navigate(user.role === 'teacher' ? '/teacher/dashboard' : '/free')
     } catch (err) {
-      setError(err.message)
+      setErrors({ general: err.message })
     } finally {
       setBusy(false)
     }
@@ -43,23 +43,25 @@ export default function TeacherLogin() {
         <p className="teacher-login__desc">Sign in to manage your classrooms and assignments.</p>
         <form className="teacher-login__form" onSubmit={handleSubmit}>
           <input
-            className="teacher-login__input"
+            className={'teacher-login__input' + (errors.email ? ' teacher-login__input--error' : '')}
             type="email"
             placeholder="Email"
             value={email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={e => { setEmail(e.target.value); setErrors(p => ({ ...p, email: '' })) }}
             autoComplete="email"
             spellCheck={false}
           />
+          {errors.email && <p className="teacher-login__field-error">{errors.email}</p>}
           <input
-            className="teacher-login__input"
+            className={'teacher-login__input' + (errors.password ? ' teacher-login__input--error' : '')}
             type="password"
             placeholder="Password"
             value={password}
-            onChange={e => setPassword(e.target.value)}
+            onChange={e => { setPassword(e.target.value); setErrors(p => ({ ...p, password: '' })) }}
             autoComplete="current-password"
           />
-          {error && <p className="teacher-login__error">{error}</p>}
+          {errors.password && <p className="teacher-login__field-error">{errors.password}</p>}
+          {errors.general && <p className="teacher-login__error">{errors.general}</p>}
           <button className="teacher-login__submit" type="submit" disabled={busy}>
             {busy ? 'Logging in…' : 'Login'}
           </button>

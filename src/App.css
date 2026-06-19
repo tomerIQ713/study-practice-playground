@@ -109,3 +109,13 @@
 .app__back:hover {
   color: var(--accent);
 }
+
+@media (max-width: 768px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+  .app__schema,
+  .app__exercises {
+    display: none;
+  }
+}
