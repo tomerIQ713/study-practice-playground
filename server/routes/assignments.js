@@ -54,6 +54,8 @@ const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, UPLOADS_DIR),
   filename: (req, file, cb) => {
     const name = Buffer.from(file.originalname, 'latin1').toString('utf8')
+      .replace(/[/\\]/g, '_')
+      .replace(/\.\.+/g, '_')
     cb(null, `${Date.now()}-${name}`)
   },
 })
@@ -199,8 +201,8 @@ router.post('/classrooms/:classroomId/assignments', verifyToken, requireRole('te
     res.status(201).json(rows[0])
   } catch (err) {
     console.error('Create assignment error:', err)
-    cleanupFiles(req.files)
-    res.status(500).json({ error: err.message || 'Internal server error' })
+    await cleanupFiles(req.files)
+    res.status(500).json({ error: 'Internal server error' })
   }
 })
 
@@ -219,15 +221,8 @@ router.put('/assignments/:id', verifyToken, requireRole('teacher'), uploadLimite
 
     const assignment = existing[0]
     const { title, description, due_date, language, question_type, question_data, empty_files } = req.body
-    let fileAttachment = assignment.file_attachment
 
-    if (req.files?.file?.[0]) {
-      if (assignment.file_attachment) {
-        fs.unlink(path.join(UPLOADS_DIR, assignment.file_attachment), () => {})
-      }
-      fileAttachment = req.files.file[0].filename
-    }
-
+    // Validate all incoming files before mutating
     if (req.files?.file?.[0]) {
       const ext = path.extname(req.files.file[0].originalname).toLowerCase()
       const result = await validateUploadedFile(req.files.file[0].path, ext)
@@ -245,9 +240,20 @@ router.put('/assignments/:id', verifyToken, requireRole('teacher'), uploadLimite
       }
     }
 
+    // Now mutate: unlink old files and assign new filenames
+    let fileAttachment = assignment.file_attachment
+    if (req.files?.file?.[0]) {
+      if (assignment.file_attachment) {
+        await fs.promises.unlink(path.join(UPLOADS_DIR, assignment.file_attachment))
+      }
+      fileAttachment = req.files.file[0].filename
+    }
+
     let starterFiles = parseStarterFiles(assignment.starter_files)
     if (req.files?.starter_files?.length > 0) {
-      starterFiles.forEach(f => fs.unlink(path.join(UPLOADS_DIR, f), () => {}))
+      for (const f of starterFiles) {
+        try { await fs.promises.unlink(path.join(UPLOADS_DIR, f)) } catch { /* ok */ }
+      }
       starterFiles = req.files.starter_files.map(f => f.filename)
     }
 
@@ -274,7 +280,7 @@ router.put('/assignments/:id', verifyToken, requireRole('teacher'), uploadLimite
       language || assignment.language,
       JSON.stringify(starterFiles),
       fileAttachment || null,
-      empty_files !== undefined ? empty_files : null,
+      empty_files !== undefined ? empty_files : (assignment.empty_files || '[]'),
       finalQuestionType || null,
       finalQuestionData || null,
       req.params.id,
@@ -284,8 +290,8 @@ router.put('/assignments/:id', verifyToken, requireRole('teacher'), uploadLimite
     res.json(rows[0])
   } catch (err) {
     console.error('Update assignment error:', err)
-    cleanupFiles(req.files)
-    res.status(500).json({ error: err.message || 'Internal server error' })
+    await cleanupFiles(req.files)
+    res.status(500).json({ error: 'Internal server error' })
   }
 })
 
@@ -475,7 +481,7 @@ router.patch('/assignments/:id/submissions/:studentId/grade', verifyToken, requi
     const db = await getDb()
     const { score, feedback } = req.body
 
-    if (score !== undefined && (score === null || score < 0 || !Number.isInteger(Number(score)))) {
+    if (score !== undefined && score !== null && (typeof score !== 'number' || score < 0 || !Number.isInteger(score))) {
       return res.status(400).json({ error: 'Score must be a non-negative integer' })
     }
     if (feedback !== undefined && typeof feedback !== 'string') {

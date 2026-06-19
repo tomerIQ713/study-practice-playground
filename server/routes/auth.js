@@ -7,10 +7,6 @@ import { queryRows } from '../db/utils.js'
 
 const router = Router()
 
-function getJwtSecret() {
-  return process.env.JWT_SECRET
-}
-
 router.post('/register', async (req, res) => {
   try {
     const { name, email, password, role } = req.body
@@ -44,7 +40,7 @@ router.post('/register', async (req, res) => {
     const rows = queryRows(db, `SELECT * FROM users WHERE email = ?`, [email])
     const user = rows[0]
 
-    const token = jwt.sign({ id: user.id, name: user.name, email: user.email, role: user.role }, getJwtSecret(), { expiresIn: '7d' })
+    const token = jwt.sign({ id: user.id, name: user.name, email: user.email, role: user.role }, process.env.JWT_SECRET, { expiresIn: '7d' })
 
     res.cookie('token', token, {
       httpOnly: true,
@@ -83,7 +79,7 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ error: 'Invalid email or password' })
     }
 
-    const token = jwt.sign({ id: user.id, name: user.name, email: user.email, role: user.role }, getJwtSecret(), { expiresIn: '7d' })
+    const token = jwt.sign({ id: user.id, name: user.name, email: user.email, role: user.role }, process.env.JWT_SECRET, { expiresIn: '7d' })
 
     res.cookie('token', token, {
       httpOnly: true,

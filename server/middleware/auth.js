@@ -1,9 +1,5 @@
 import jwt from 'jsonwebtoken'
 
-function getJwtSecret() {
-  return process.env.JWT_SECRET
-}
-
 export function verifyToken(req, res, next) {
   const header = req.headers.authorization
   const token = header?.startsWith('Bearer ')
@@ -15,7 +11,7 @@ export function verifyToken(req, res, next) {
   }
 
   try {
-    const decoded = jwt.verify(token, getJwtSecret())
+    const decoded = jwt.verify(token, process.env.JWT_SECRET)
     req.user = decoded
     next()
   } catch {

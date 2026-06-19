@@ -3,9 +3,6 @@ import path from 'path'
 import fs from 'fs'
 import { fileURLToPath } from 'url'
 import express from 'express'
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-dotenv.config({ path: path.resolve(__dirname, '.env') })
 import helmet from 'helmet'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
@@ -16,6 +13,9 @@ import assignmentRoutes from './routes/assignments.js'
 import messageRoutes from './routes/messages.js'
 import { getDb } from './db/connection.js'
 import { authLimiter, apiLimiter } from './middleware/rateLimit.js'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+dotenv.config({ path: path.resolve(__dirname, '.env') })
 
 if (!process.env.JWT_SECRET || process.env.JWT_SECRET.length < 16) {
   console.error('FATAL: Set a strong JWT_SECRET (>=16 chars) in server/.env or production environment')
@@ -54,28 +54,32 @@ app.use(cors({
 }))
 app.use(cookieParser())
 app.use(express.json({ limit: '10mb' }))
-app.use('/api/auth', authLimiter)
-app.use('/api', apiLimiter)
 
+app.use('/api/auth', authLimiter)
 app.use('/api/auth', authRoutes)
+
+app.use('/api', (req, res, next) => {
+  if (req.originalUrl.startsWith('/api/auth')) return next()
+  return apiLimiter(req, res, next)
+})
+
 app.use('/api/classrooms', classroomRoutes)
 app.use('/api', assignmentRoutes)
 app.use('/api', messageRoutes)
 
-app.use(express.static(path.join(__dirname, '..', 'dist')))
-app.use((req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'))
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok' })
 })
 
+app.use(express.static(path.join(__dirname, '..', 'dist')))
 app.use((err, req, res, next) => {
   console.error('Unhandled error:', err)
   const message = err instanceof multer.MulterError ? err.message
-    : err.message || 'Internal server error'
+    : 'Internal server error'
   res.status(err.status || 500).json({ error: message })
 })
-
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok' })
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'))
 })
 
 async function start() {

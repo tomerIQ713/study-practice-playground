@@ -129,7 +129,7 @@ router.get('/:id/roster', verifyToken, requireRole('student'), async (req, res) 
     }
 
     const classrooms = queryRows(db, `
-      SELECT c.id, c.name, c.code, c.teacher_id, c.created_at, u.name AS teacher_name
+      SELECT c.id, c.name, c.teacher_id, c.created_at, u.name AS teacher_name
       FROM classrooms c
       JOIN users u ON u.id = c.teacher_id
       WHERE c.id = ?

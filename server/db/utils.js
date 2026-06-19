@@ -9,15 +9,12 @@ export function toRows(result) {
 }
 
 export function queryRows(db, sql, params = []) {
-  if (params.length > 0) {
-    const stmt = db.prepare(sql)
-    stmt.bind(params)
-    const rows = []
-    while (stmt.step()) {
-      rows.push(stmt.getAsObject())
-    }
-    stmt.free()
-    return rows
+  const stmt = db.prepare(sql)
+  stmt.bind(params)
+  const rows = []
+  while (stmt.step()) {
+    rows.push(stmt.getAsObject())
   }
-  return toRows(db.exec(sql))
+  stmt.free()
+  return rows
 }
