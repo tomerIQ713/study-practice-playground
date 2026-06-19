@@ -1,6 +1,6 @@
 .app {
   display: grid;
-  grid-template-columns: 260px 1fr 260px;
+  grid-template-columns: 260px minmax(0, 1fr) 260px;
   height: 100vh;
   height: 100dvh;
 }
@@ -15,6 +15,7 @@
 .app__main {
   display: flex;
   flex-direction: column;
+  min-width: 0;
   overflow: hidden;
   background: var(--bg);
 }
@@ -110,9 +111,10 @@
   color: var(--accent);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .app {
     grid-template-columns: 1fr;
+    overflow: hidden;
   }
   .app__schema,
   .app__exercises {
